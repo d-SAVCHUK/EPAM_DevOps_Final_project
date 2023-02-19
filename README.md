@@ -32,9 +32,9 @@ Project schema:
 4.1. The technologies used in project:
 - Azure Cloud
 - Azure DevOps (git)
-- Ansible (create in configure env in azure cloud) https://dev.azure.com/savchukdmitriy/Final_project/_git/ansible 
+- Ansible (create in configure env in azure cloud)
 - Jenkins (Master: trigger build, Slave: CI/CD - build and deploy app in container) 
-- Web App (Docker container) https://dev.azure.com/savchukdmitriy/Final_project/_git/Final_project 
+- Web App (Docker container)
 
 4.2. Step by step realisation:
 1. Create free accounts at Azure Cloud and Azure DevOps.
@@ -94,8 +94,19 @@ docker push dmitriyregistry.azurecr.io/dmitriyapp:1.$BUILD_NUMBER
 az webapp create --resource-group "Final_project_one" --plan "ASP-Finalprojectone-9145" --name $EnvironmentForDeployment --deployment-container-image-name dmitriyregistry.azurecr.io/dmitriyapp:1.$BUILD_NUMBER
 ```
 
+9. Containers:
+
+![screen]()
+
+10. Project content:
+
+![screen]()
+
 ## 5. Proof of work.
 
 Go to the next links:
 https://dmitriyapp.azurewebsites.net
+
 https://dmitriyapp2.azurewebsites.net
+
+![screen]()
