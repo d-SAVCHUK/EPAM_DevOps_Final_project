@@ -1,0 +1,39 @@
+
+---
+- hosts: jenkinsMaster
+  become: yes
+  become_user: root
+  vars_files:
+    - group_vars/group1.yml
+
+  tasks:
+  - name: Download Jenkins key
+    ansible.builtin.shell: |
+      wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+  
+  - name: add Jenkins to the list
+    ansible.builtin.shell: |
+      sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  
+  - name: apt update
+    ansible.builtin.shell: |
+      sudo apt update
+
+#  - name: install Java 
+#    ansible.builtin.shell: |
+#      sudo mkdir -p /usr/lib/jvm && sudo wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz && sudo tar xvf openjdk- 11.0.2_linux-x64_bin.tar.gz --directory /usr/lib/jvm/ && sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.2/bin/java 1 && sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-11.0.2/bin/javac 1
+#      sudo add-apt-repository ppa:openjdk-r/ppa
+#      sudo apt install openjdk-11-jre -y
+
+  - name: install Jenkins
+    ansible.builtin.shell: |
+      sudo apt install jenkins -y
+
+  - name: daemon-reload to pick up config changes
+    ansible.builtin.systemd:
+      daemon_reload: yes
+
+  - name: Start jenkins
+    ansible.builtin.systemd:
+      name: jenkins
+      state: started

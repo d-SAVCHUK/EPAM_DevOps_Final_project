@@ -1,0 +1,78 @@
+- name: Provision environment
+  hosts: localhost
+  connection: local
+  vars_files:
+    - group_vars/group1.yml
+  tasks:
+
+### Jenkins Master ###
+
+  - name: Create Jenkins Master VM
+    azure_rm_virtualmachine:
+      location: "{{ location }}"
+      resource_group: '{{ ResourceGroup }}'
+      name: '{{ JenkinsVM }}'
+      vm_size: Standard_DS1_v2
+      admin_username: '{{ user }}'
+      admin_password: '{{ pass }}'
+      ssh_password_enabled: true
+      virtual_network_name :  "{{ VNET }}"
+      virtual_network_resource_group : "{{ ResourceGroup }}"
+      subnet_name : "{{ Subnet }}"
+      managed_disk_type: "Standard_LRS"
+      image:
+        offer: 0001-com-ubuntu-server-focal
+        publisher: canonical
+        sku: 20_04-lts-gen2
+        version: latest
+
+### Jenkins Slaves ###
+
+  - name: Create Jenkins slave
+    azure_rm_virtualmachine:
+      location: "{{ location }}"
+      resource_group: '{{ ResourceGroup }}'
+      name: '{{ JenkinsSlave }}'
+      vm_size: Standard_DS1_v2
+      admin_username: '{{ user }}'
+      admin_password: '{{ pass }}'
+      ssh_password_enabled: true
+      virtual_network_name :  "{{ VNET }}"
+      virtual_network_resource_group : "{{ ResourceGroup }}"
+      subnet_name : "{{ Subnet }}"
+      managed_disk_type: "Standard_LRS"
+      image:
+        offer: 0001-com-ubuntu-server-focal
+        publisher: canonical
+        sku: 20_04-lts-gen2
+        version: latest
+
+### Container Registry ###
+
+  - name: Create an azure container registry
+    azure_rm_containerregistry:
+      name: dmitriyregistry
+      location: '{{ location }}'
+      resource_group: "{{ ResourceGroup }}"
+      admin_user_enabled: true
+      sku: Premium
+      tags:
+          Release: beta1
+          Environment: Production
+
+### Containers (Envs) ###
+
+  - name: Create a docker web app with private acr registry
+    azure_rm_webapp:
+      resource_group: "{{ ResourceGroup }}"
+      name: "{{ item }}"
+      location: '{{ location }}'
+      plan: "ASP-Finalprojectone-9145"
+      app_settings:
+        testkey: testvalue
+      container_settings:
+        name: ansible/ubuntu1404
+        registry_server_url: "{{ registry_server_url }}"
+        registry_server_user: "{{ registry_server_user }}"
+        registry_server_password: "{{ registry_server_password }}"
+    loop: "{{ container_names }}"

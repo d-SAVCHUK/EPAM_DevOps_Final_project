@@ -1,0 +1,13 @@
+[all:vars]
+ansible_connection=ssh
+ansible_user=dmitriy
+ansible_ssh_pass="Xmjo*kQ8t638"
+
+
+[jenkinsMaster]
+10.0.0.5 
+
+[jenkinsSlave]
+10.0.0.6
+
+

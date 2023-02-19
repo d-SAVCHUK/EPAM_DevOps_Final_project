@@ -1,0 +1,52 @@
+---
+- hosts: jenkinsSlave
+  become: yes
+  become_user: root
+  vars_files:
+    - group_vars/group1.yml
+  tasks:
+
+    - name: install Java 
+      ansible.builtin.shell: |
+        sudo apt install openjdk-11-jre -y
+
+    - name: install Git 
+      ansible.builtin.shell: |
+        sudo apt install git -y
+
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    - name: Give Permissions to jenkins-user
+      ansible.builtin.shell: |
+        chmod 666 /var/run/docker.sock 

@@ -1,0 +1,26 @@
+## General
+ResourceGroup: "Final_project_one"
+VNET: "Final_project_one-vnet"
+Subnet: "default"
+location: "UK South"
+
+
+## Jenkins Master
+JenkinsIP: "Jenkins_public_ip"
+JenkinsVM: "jenkinsMaster"
+NSG: "jenkins_nsg"
+NIC: "jenkins_nic"
+user: "dmitriy"
+pass: "Xmjo*kQ8t638"
+
+## Jenkins slave
+JenkinsSlave: "jenkinsSlave"
+
+
+## Containers ## 
+container_names: 
+ - dmitriyapp
+ - dmitriyapp2
+registry_server_url: dmitriyregistry.azurecr.io
+registry_server_user: dmitriyregistry
+registry_server_password: I31mzMOOn7zfkfTt3Vr23uG9l/Sphf1ieokwKUVuU4+ACRBDpC+O
