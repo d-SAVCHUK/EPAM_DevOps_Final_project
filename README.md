@@ -96,11 +96,11 @@ az webapp create --resource-group "Final_project_one" --plan "ASP-Finalprojecton
 
 9. Containers:
 
-![screen]()
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen10.png)
 
 10. Project content:
 
-![screen]()
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen11.png)
 
 ## 5. Proof of work.
 
@@ -109,4 +109,4 @@ https://dmitriyapp.azurewebsites.net
 
 https://dmitriyapp2.azurewebsites.net
 
-![screen]()
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen12.png)
