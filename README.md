@@ -49,6 +49,11 @@ az login
 az group create
 ansible-playbook
 ```
-
+3. Create yaml files with instruction fro Ansible:
+```bash
+ansible-playbook main.yaml
+ansible-playbook jenkins.yaml -i hosts
+ansible-playbook jenkins-slave.yaml -i host
+```
 ## 5. Proof of work.
 ...
