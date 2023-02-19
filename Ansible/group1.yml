@@ -11,7 +11,7 @@ JenkinsVM: "jenkinsMaster"
 NSG: "jenkins_nsg"
 NIC: "jenkins_nic"
 user: "dmitriy"
-pass: "Xmjo*kQ8t638"
+pass: "***********"
 
 ## Jenkins slave
 JenkinsSlave: "jenkinsSlave"
