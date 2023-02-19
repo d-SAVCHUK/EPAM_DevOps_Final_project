@@ -15,7 +15,7 @@
 ## 3. About project.
 
 Project schema:
-![screen]()
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/project%20schema.jpg)
 
 ## 4. Project realisation.
 
