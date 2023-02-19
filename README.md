@@ -56,10 +56,10 @@ ansible-playbook jenkins.yaml -i hosts
 ansible-playbook jenkins-slave.yaml -i host
 ```
 4. Ansible main.yaml contains (https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Ansible/main.yaml):
-4.1. Create Jenkins Master VM
-4.2. Create Jenkins slave
-4.3. Create an azure container registry
-4.4. Create a docker web app with private acr registry
+- Create Jenkins Master VM
+- Create Jenkins slave
+- Create an azure container registry
+- Create a docker web app with private acr registry
 
 5. File group1.yml contains variables (https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Ansible/group1.yml).
 
