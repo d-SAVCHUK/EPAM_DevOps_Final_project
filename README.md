@@ -55,7 +55,44 @@ ansible-playbook main.yaml
 ansible-playbook jenkins.yaml -i hosts
 ansible-playbook jenkins-slave.yaml -i host
 ```
-4. Ansible yaml contains:
+4. Ansible main.yaml contains (https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Ansible/main.yaml):
+4.1. Create Jenkins Master VM
+4.2. Create Jenkins slave
+4.3. Create an azure container registry
+4.4. Create a docker web app with private acr registry
+
+5. File group1.yml contains variables (https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Ansible/group1.yml).
+
+6. File jenkins.yaml contains Jenkins Master parameters (https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Ansible/jenkins.yaml).
+
+7. File jenkins_slave.yaml contains Jenkins Slave parameters (https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Ansible/jenkins_slave.yaml).
+
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen1.png)
+
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen2.png)
+
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen3.png)
+
+8. Settings of Jenkins:
+
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen4.png)
+
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen5.png)
+
+![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/Screen6.png)
+
+8.1. Jenkins command (CI/CD):
+```yaml
+## Build
+echo "<h1>Your Application version is : 1.$BUILD_NUMBER </h1> <h2><h2>Environment: $EnvironmentForDeployment</h2>" >> index.html
+docker build -t dmitriyapp:1.$BUILD_NUMBER .
+docker tag dmitriyapp:1.$BUILD_NUMBER dmitriyregistry.azurecr.io/dmitriyapp:1.$BUILD_NUMBER
+docker login dmitriyregistry.azurecr.io --username dmitriyregistry --password I31mzMOOn7zfkfTt3Vr23uG9l/Sphf1ieokwKUVuU4+ACRBDpC+O
+docker push dmitriyregistry.azurecr.io/dmitriyapp:1.$BUILD_NUMBER
+
+## Deployment
+az webapp create --resource-group "Final_project_one" --plan "ASP-Finalprojectone-9145" --name $EnvironmentForDeployment --deployment-container-image-name dmitriyregistry.azurecr.io/dmitriyapp:1.$BUILD_NUMBER
+```
 
 ## 5. Proof of work.
 
