@@ -2,7 +2,7 @@
 
 ## 1. About me.
 
-My name is Dmitry. I have over 10 years of experience in the financial sector. From February 2022, I entered the EPAM Univercity course for switchers - IT Fundamentals. Upon completion, I chose the DevOps L0 direction, after passing the tests I successfully moved to the L1 level. Articles that we studied:
+My name is Dmitry. I have over 10 years of experience in the financial sector. In February 2022, I entered the EPAM University course for switchers - IT Fundamentals. Upon completion, I chose the DevOps L0 direction, after passing the tests I successfully moved to the L1 level. Articles that we studied:
 - DevOps Essentials L1: Linux + Bash, Database Administration, Networks using Linux, Cloud Basic, CI/CD & IaC & Containerisation (Jenkins), Terraform, Docker, Ansible.
 - DevOps Essentials L0: Hypervisor Essentials, Networking Essentials, ContOS Linux Essentials, Scripting: Bash Essentials, Vision control with Git, Python Essentials.
 - IT Fundamentals: Basics of Computer Science, Programming, Front End, Vision control with Git, Math for IT, Introduction to SQL, Software Development Methodologies, Cloud Overview.
