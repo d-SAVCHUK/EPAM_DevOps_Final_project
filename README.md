@@ -9,6 +9,8 @@ My name is Dmitry. I have over 10 years of experience in the financial sector. F
 
 Now I present the final project of the course.
 
+My Git with home tasks: https://github.com/d-SAVCHUK
+
 ## 2. Project requirements.
 
 - host with git (Linux, MacOS, Windows: [possible on a virtual machine]);
