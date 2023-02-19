@@ -2,6 +2,12 @@
 
 ## 1. About me.
 
+My name is Dmitry. I have over 10 years of experience in the financial sector. From February 2022, I entered the EPAM Univercity course for switchers - IT Fundamentals. Upon completion, I chose the DevOps L0 direction, after passing the tests I successfully moved to the L1 level. Articles that we studied:
+DevOps Essentials L1: Linux + Bash, Database Administration, Networks using Linux, Cloud Basic, CI/CD & IaC & Containerisation (Jenkins), Terraform, Docker, Ansible.
+DevOps Essentials L0: Hypervisor Essentials, Networking Essentials, ContOS Linux Essentials, Scripting: Bash Essentials, Vision control with Git, Python Essentials.
+IT Fundamentals: Basics of Computer Science, Programming, Front End; Vision control with Git; Math for IT; Introduction to SQL; Software Development Methodologies; Cloud Overview.
+Now I present the final project of the course.
+
 ## 2. Project requirements.
 
 - host with git (Linux, MacOS, Windows: [possible on a virtual machine]);
@@ -15,6 +21,7 @@
 ## 3. About project.
 
 Project schema:
+
 ![screen](https://github.com/d-SAVCHUK/EPAM_DevOps_Final_project/blob/main/project%20schema.jpg)
 
 ## 4. Project realisation.
@@ -29,4 +36,4 @@ Project schema:
 4.2. Step by step realisation:
 
 ## 5. Proof of work.
-
+...
