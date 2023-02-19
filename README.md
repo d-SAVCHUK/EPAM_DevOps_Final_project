@@ -30,13 +30,25 @@ Project schema:
 ## 4. Project realisation.
 
 4.1. The technologies used in project:
-- Azure cloud
-- Azure devops (git)
+- Azure Cloud
+- Azure DevOps (git)
 - Ansible (create in configure env in azure cloud) https://dev.azure.com/savchukdmitriy/Final_project/_git/ansible 
 - Jenkins (Master: trigger build, Slave: CI/CD - build and deploy app in container) 
 - Web App (Docker container) https://dev.azure.com/savchukdmitriy/Final_project/_git/Final_project 
 
 4.2. Step by step realisation:
+1. Create free accounts at Azure Cloud and Azure DevOps.
+2. Set up Ansible on Azure:
+- Set up your Azure account credentials in your local terminal. This can be done by installing the Azure CLI and running "az login".
+- Create an Azure resource group to contain your deployment. This can be done with the "az group create" command, specifying the resource group name, location, and any other desired parameters.
+- Create an Ansible playbook to define your deployment. This playbook should contain the desired Azure resources you want to create or manage.
+- Install Ansible on your local machine or on an Azure virtual machine.
+- Use the "ansible-playbook" command to run your Ansible playbook and deploy your Azure resources. You will need to specify the path to your playbook, as well as any required variables or credentials.
+```bash
+az login
+az group create
+ansible-playbook
+```
 
 ## 5. Proof of work.
 ...
